@@ -12,7 +12,7 @@ from sqlalchemy import DateTime, Integer, String, Text, create_engine, select, d
 from sqlalchemy.orm import DeclarativeBase, Mapped, Session, mapped_column, sessionmaker
 from services.llm_service import analyze_feedback
 
-DATABASE_URL = os.getenv("DATABASE_URL", "postgresql+psycopg://restaurant:restaurant@localhost:5432/restaurant_feedback")
+DATABASE_URL = os.getenv("DATABASE_URL", "postgresql+psycopg2://restaurant:restaurant@localhost:5432/restaurant_feedback")
 engine = create_engine(DATABASE_URL, pool_pre_ping=True)
 SessionLocal = sessionmaker(engine)
 password_hash = PasswordHash.recommended()
